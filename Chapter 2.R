@@ -168,3 +168,13 @@ nrow(Boston)
 
 ncol(Boston)
 pairs(Boston)
+
+par(mfrow = c(2,2))
+
+plot(Boston[,c("dis","crim")])
+plot(Boston[,c("ptratio","crim")])
+plot(Boston[,c("medv","crim")])
+plot(Boston[,c("indus","crim")])
+
+boxplot(crim~chas,Boston)
+

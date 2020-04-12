@@ -1,11 +1,17 @@
-# 2018 August 25
+# 2020 April 11
 
+# load packages
 
-install.packages("ISLR")
-library(ISLR)
+if(!require(ISLR)){
+  install.packages("ISLR")
+  library(ISLR)
+}
 
-install.packages("plotly")
-library(plotly)
+if(!require(plotly)){
+  install.packages("plotly")
+  library(plotly)
+}
+  
 
 # Chapter 2 -- Applied Excerises
 
@@ -42,25 +48,25 @@ pairs(College[,1:10])
 # 8 c iii) Plot side by side boxplots of OutState versus Private
 
 f <- list(
-        family = "Century Gothic",
-        size = 18, 
-        color = "#7f7f7f"
+  family = "Century Gothic",
+  size = 18, 
+  color = "#7f7f7f"
 )
 
 
 f2 <- list(
-        family = "Century Gothic",
-        size = 13, 
-        color = "#7f7f7f"
+  family = "Century Gothic",
+  size = 13, 
+  color = "#7f7f7f"
 )
 
 x <- list(title = "Private College", titlefont = f)
 y <- list(title = "Out of State", titlefont = f)
-        
-        
+
+
 plot_ly(x = ~College$Private, y = ~College$Outstate, type = "box") %>%
-        layout(title = "Out of State Tuition vs Private Schools", font = f2,
-                xaxis = x, yaxis = y)
+  layout(title = "Out of State Tuition vs Private Schools", font = f2,
+         xaxis = x, yaxis = y)
 
 # c iv) Create a new qualitative variable, called Elit, by binning the 
 # Top10perc variable. We are going to divide universities into two groups
@@ -77,16 +83,16 @@ head(College)
 ?College
 
 f <- list(
-        family = "Century Gothic",
-        size = 18, 
-        color = "#7f7f7f"
+  family = "Century Gothic",
+  size = 18, 
+  color = "#7f7f7f"
 )
 
 
 f2 <- list(
-        family = "Century Gothic",
-        size = 13, 
-        color = "#7f7f7f"
+  family = "Century Gothic",
+  size = 13, 
+  color = "#7f7f7f"
 )
 
 x <- list(title = "Elite College", titlefont = f)
@@ -94,8 +100,8 @@ y <- list(title = "Out of State", titlefont = f)
 
 
 plot_ly(x = ~College$Elite, y = ~College$Outstate, type = "box") %>%
-        layout(title = "Out of State Tuition vs Elite Schools", font = f2,
-               xaxis = x, yaxis = y)
+  layout(title = "Out of State Tuition vs Elite Schools", font = f2,
+         xaxis = x, yaxis = y)
 
 # 8 v) Use the hist() function to produce some histograms with numbers of bins for 
 # a few quantitive variables
